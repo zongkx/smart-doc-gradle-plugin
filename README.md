@@ -185,7 +185,9 @@ gradle publish
 ### Publish to Gradle Plugin Portal
 publish to https://plugins.gradle.org/
 ```groovy
-gradlew publishPlugins
+gradlew publishPlugins -PskipSigning
+// or
+make publishToPortal
 ```
 ## Other reference
 - [Smart-doc manual](https://smart-doc-group.github.io)
