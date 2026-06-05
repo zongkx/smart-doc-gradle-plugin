@@ -1,0 +1,56 @@
+ plugins {
+    id 'java'
+    id 'java-gradle-plugin'
+    id 'maven-publish'
+    id 'com.gradle.plugin-publish' version '1.2.1'
+}
+
+group 'io.github.zongkx'
+version '1.0'
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = "UTF-8"
+}
+
+tasks.withType(Javadoc).configureEach {
+    enabled = false
+    options.addStringOption('Xdoclint:none', '-quiet')
+}
+
+ repositories {
+     maven { url 'https://maven.aliyun.com/repository/public' }
+     mavenCentral()
+     maven { url 'https://jitpack.io' } // 💡 确保在这里
+ }
+
+dependencies {
+    implementation group: 'com.ly.smart-doc', name: 'smart-doc', version: '3.1.2'
+}
+
+
+
+gradlePlugin {
+    website = 'https://github.com/zongkx/smart-doc-gradle-plugin'
+    vcsUrl = 'https://github.com/zongkx/smart-doc-gradle-plugin.git'
+
+    plugins {
+        smartDocPlugin {
+            id = 'io.github.zongkx.smart-doc'
+            implementationClass = 'io.github.zongkx.plugin.SmartDocPlugin'
+            displayName = 'Smart-Doc Gradle 8+ Plugin'
+            description = 'Provide Gradle 8+ support for Smart-Doc'
+            tags = ['Gradle8', 'Smart-Doc']
+        }
+    }
+}
+
+ tasks.register('sourcesJar', Jar) {
+     archiveClassifier = 'sources'
+     from sourceSets.main.allSource
+ }
+
+
+publishing {
+    repositories {
+    }
+}
