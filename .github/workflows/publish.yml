@@ -12,7 +12,7 @@ jobs:
 
     steps:
       # 1. 拉取代码
-      - name: Checkout code
+      - name: Checkout code 
         uses: actions/checkout@v4
 
       # 2. 设置 JDK 环境（根据你插件的兼容性，这里使用 JDK 17）
