@@ -20,7 +20,7 @@ tasks.withType(Javadoc).configureEach {
  repositories {
      maven { url 'https://maven.aliyun.com/repository/public' }
      mavenCentral()
-     maven { url 'https://jitpack.io' } // 💡 确保在这里
+     maven { url 'https://jitpack.io' }  
  }
 
 dependencies {
@@ -37,9 +37,9 @@ gradlePlugin {
         smartDocPlugin {
             id = 'io.github.zongkx.smart-doc'
             implementationClass = 'io.github.zongkx.plugin.SmartDocPlugin'
-            displayName = 'Smart-Doc Gradle 8+ Plugin'
-            description = 'Provide Gradle 8+ support for Smart-Doc'
-            tags = ['Gradle8', 'Smart-Doc']
+            displayName = 'Smart-Doc Gradle 9+ Plugin'
+            description = 'Provide Gradle 9+ support for Smart-Doc'
+            tags = ['Gradle 9', 'Smart-Doc']
         }
     }
 }
